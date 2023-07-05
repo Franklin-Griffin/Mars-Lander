@@ -1,11 +1,10 @@
-/Logs
-/Packages
-/UserSettings
-/ProjectSettings
-/Library
-/obj
-/Temp
 /.vscode
+/Library
+/Logs
+/obj
+/Packages
+/ProjectSettings
+/Temp
 Assembly-CSharp.csproj
 Mars Lander.sln
 Mars-Lander.sln
