@@ -1,0 +1,11 @@
+/Logs
+/Packages
+/UserSettings
+/ProjectSettings
+/Library
+/obj
+/Temp
+/.vscode
+Assembly-CSharp.csproj
+Mars Lander.sln
+Mars-Lander.sln
