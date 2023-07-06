@@ -153,11 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb39b02dffd4c242a96488a26108e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPoints: 00000000e8030000dc050000b80b0000a00f00007c150000571b0000
-  yPoints: 64000000f4010000dc050000e8030000960000009600000020030000
-  X: 2500
+  xPoints: 000000002c0100005e010000f401000020030000e8030000b0040000dc050000d007000098080000c4090000540b0000b80b0000800c0000ac0d0000d80e0000a00f0000881300007c150000571b0000
+  yPoints: e8030000dc05000078050000d007000008070000c40900003408000060090000e8030000f40100006400000020030000f4010000e8030000d007000020030000c8000000c8000000dc050000f00a0000
+  X: 500
   Y: 2700
-  hSpeed: 0
+  hSpeed: 100
   vSpeed: 0
   fuel: 550
 --- !u!4 &32575939
@@ -172,7 +172,7 @@ Transform:
   m_LocalScale: {x: 5000, y: 5000, z: 5000}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &32575940
 SpriteRenderer:
@@ -262,7 +262,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -319,41 +319,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1954065217}
   - component: {fileID: 1954065216}
-  - component: {fileID: 1954065215}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!68 &1954065215
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954065214}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: 100}
-  - {x: 1000, y: 500}
-  - {x: 1500, y: 1500}
-  - {x: 3000, y: 1000}
-  - {x: 4000, y: 150}
-  - {x: 5500, y: 150}
-  - {x: 6999, y: 800}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_IsActive: 0
 --- !u!120 &1954065216
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -470,5 +442,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

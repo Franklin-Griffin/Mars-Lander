@@ -1,9 +1,6 @@
 using System;
 using System.Linq;
-using System.IO;
-using System.Text;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 class Solution : MonoBehaviour
@@ -15,11 +12,13 @@ class Solution : MonoBehaviour
     public int hSpeed;
     public int vSpeed;
     public int fuel;
+    public static int power = 0;
+    public static int rotate = -90;
     public static int GEN_SIZE = 100;
     Organism C;
     int[,] points;
     int landID;
-    
+
     void Start()
     {
         StartCoroutine("GameLoop");
@@ -92,7 +91,8 @@ class Solution : MonoBehaviour
             {
                 a += newList[i].score;
                 a += " ";
-                if (newList[i].condition == 1) {
+                if (newList[i].condition == 1)
+                {
                     pc++;
                 }
             }
@@ -131,7 +131,7 @@ class Solution : MonoBehaviour
                 {
                     if (rand.Next(0, 101) <= 3)
                     {
-                        newList[i].Chromosomes[j] = new Chromosome(rand.Next(-15,16), out rotate, rand.Next(0,5), out power);
+                        newList[i].Chromosomes[j] = new Chromosome(rand.Next(-15, 16), out rotate, rand.Next(0, 5), out power);
                     }
                     if (j != 0)
                     {
@@ -177,7 +177,7 @@ class Solution : MonoBehaviour
             }
             temprand -= c[i].score;
         }
-        return c[c.Length-1];
+        return c[c.Length - 1];
     }
     static Organism[] Normalize(Organism[] c)
     {
@@ -206,7 +206,7 @@ class Solution : MonoBehaviour
         for (int i = 0; i < C.Chromosomes.Length; i++)
         {
             finali = i;
-            C.Chromosomes[i].RunTurn(ref x, ref y, ref VSpeed, ref HSpeed, ref Fuel,0);
+            C.Chromosomes[i].RunTurn(ref x, ref y, ref VSpeed, ref HSpeed, ref Fuel, 0);
             visualRep.transform.position = new Vector3(x, y, 0);
             visualRep.transform.eulerAngles = new Vector3(0, 0, C.Chromosomes[i].rotate - 180);
             //Collision
@@ -233,7 +233,7 @@ class Solution : MonoBehaviour
             }
             yield return new WaitForSeconds(0.1f);
         }
-        done:;
+    done:;
     }
 
     class Population
@@ -267,8 +267,8 @@ class Solution : MonoBehaviour
         public int condition;
         public Organism()
         {
-            int prevRot = 0;
-            int prevPow = 0;
+            int prevRot = rotate;
+            int prevPow = power;
             for (int i = 0; i < Chromosomes.Length; i++)
             {
                 int rotate;
@@ -374,13 +374,16 @@ class Solution : MonoBehaviour
             {
                 score = 5000;
                 score -= 0.5f * (float)(Vector2.Distance(new Vector2(x, y), new Vector2((points[landID, 0] + points[landID + 1, 0]) / 2, points[landID, 1])));
-                if (Math.Abs(VSpeed) > 40) {
+                if (Math.Abs(VSpeed) > 40)
+                {
                     score -= (int)(10 * Math.Abs(VSpeed));
                 }
-                if (Math.Abs(HSpeed) > 20) {
+                if (Math.Abs(HSpeed) > 20)
+                {
                     score -= 5 * (int)Math.Abs(HSpeed);
                 }
-                if (!(Chromosomes[finali - 1].rotate < 15 && Chromosomes[finali - 1].rotate > -15)) {
+                if (!(Chromosomes[finali - 1].rotate < 15 && Chromosomes[finali - 1].rotate > -15))
+                {
                     score -= 25 * (int)(Math.Abs(Chromosomes[finali - 1].rotate));
                 }
                 score *= 100;
